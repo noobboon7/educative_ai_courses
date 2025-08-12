@@ -1,0 +1,12 @@
+gradio>=4.44.0
+transformers>=4.42.0
+accelerate>=0.33.0
+torch>=2.3.0
+# sentencepiece is optional and requires CMake to build on macOS/Python 3.13.
+# Install later if you use models that need it (e.g., LLaMA/T5/MT5).
+safetensors>=0.4.3
+numpy>=1.26.0
+pydantic>=2.7.0
+python-dotenv>=1.0.1
+requests>=2.32.0
+

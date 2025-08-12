@@ -1,0 +1,110 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+# Editor swap/backup files
+*~
+*.swp
+*.swo
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+*/.venv/
+*/venv/
+*/env/
+
+# pyenv
+.python-version
+
+# Package/build artifacts
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdists/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Type checkers / linters
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# Sphinx docs
+docs/_build/
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.iml
+
+# Logs and temp files
+*.log
+logs/
+/tmp/
+.tmp/
+
+# Environment / secrets files
+.env
+.env.*
+.envrc
+
+# Gradio specific caches
+gradio_cached_examples/
+
+# Node/npm (if present)
+node_modules/
+*.tsbuildinfo
+
+# Project-specific exclusions
+CHANGELOG.md
+changelog.md
+
