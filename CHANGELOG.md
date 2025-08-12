@@ -44,3 +44,12 @@ This log intentionally avoids sensitive information (no secrets, tokens, or pers
 
 ### Changed
 - Adjusted `.gitignore` rule order so `!CHANGELOG.md` takes effect on case-insensitive filesystems (e.g., macOS), ensuring the changelog is tracked.
+
+### Added (recent)
+- gradio_chatbot/educative_chatbot/basic_input_bot.py
+- gradio_chatbot/educative_chatbot/pattern-matching_bot.py
+- gradio_chatbot/educative_chatbot/rule_based_bot.py
+- gradio_chatbot/educative_chatbot/streaming_chatbot.py
+
+### Removed
+- gradio_chatbot/educative_chatbot/main.py (superseded by individual bot entry points)
