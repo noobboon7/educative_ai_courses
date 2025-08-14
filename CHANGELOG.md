@@ -53,3 +53,32 @@ This log intentionally avoids sensitive information (no secrets, tokens, or pers
 
 ### Removed
 - gradio_chatbot/educative_chatbot/main.py (superseded by individual bot entry points)
+
+## 2025-08-14
+
+### Changed
+- gradio_chatbot/requirements.txt: add Rasa entries gated to `python_version < "3.12"` to avoid installation on Python 3.12+.
+
+### Added
+- gradio_chatbot/requirements-rasa.txt: optional Rasa 3.x requirements for demos (pins rasa and rasa-sdk to >=3.6,<4.0).
+- Scaffolded `gradio_chatbot/Rasa_demo/` Rasa 3.x project for a simple assistant, including:
+  - `actions/actions.py`
+  - `config.yml`, `domain.yml`, `endpoints.yml`, `credentials.yml`
+  - `data/nlu.yml`, `data/rules.yml`, `data/stories.yml`
+  - `tests/test_stories.yml`
+  - `main.py` entry point
+
+### Operations
+- Installed uv via Homebrew (upgraded to uv 0.8.10).
+- Created Python 3.10 virtual environment at `gradio_chatbot/.venv_rasa` using uv and installed Rasa and Rasa SDK successfully from `requirements-rasa.txt`.
+
+### Housekeeping
+- Updated `.gitignore` to exclude Rasa cache and model artifacts:
+  - `gradio_chatbot/Rasa_demo/.rasa/`
+  - `gradio_chatbot/Rasa_demo/models/`
+  - `gradio_chatbot/Rasa_demo/*.tar.gz`
+  - `gradio_chatbot/Rasa_demo/story_graph.dot`
+
+### Notes
+- Rasa 3.x is not available for Python 3.12+; keep `.venv_chatbot` on Python 3.13 for Gradio/Transformers and use `.venv_rasa` (3.10) for Rasa demos.
+- The Rasa demo includes generated cache/model files locally; they are ignored from version control to keep the repo lean.

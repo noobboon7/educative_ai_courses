@@ -1,0 +1,16 @@
+# Rasa demo dependencies
+# Use with Python 3.10 or 3.11 (recommended 3.10 for best compatibility)
+# Create and activate a dedicated virtual environment, then install:
+#   uv venv -p 3.10 .venv_rasa  # or: python3.10 -m venv .venv_rasa
+#   source .venv_rasa/bin/activate
+#   pip install -r requirements-rasa.txt
+
+# Pin Rasa 3.x line and SDK
+rasa>=3.6,<4.0
+rasa-sdk>=3.6,<4.0
+
+# Common extras often needed in demos
+# spacy is optional; uncomment if you plan to use spaCy pipelines
+# spacy>=3.7,<4.0
+# en-core-web-sm model: python -m spacy download en_core_web_sm
+

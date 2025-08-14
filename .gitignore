@@ -109,3 +109,9 @@ node_modules/
 changelog.md
 # Track the changelog in Git (place after the ignore so it takes precedence)
 !CHANGELOG.md
+
+# Rasa demo artifacts (cache/models/output)
+gradio_chatbot/Rasa_demo/.rasa/
+gradio_chatbot/Rasa_demo/models/
+gradio_chatbot/Rasa_demo/*.tar.gz
+gradio_chatbot/Rasa_demo/story_graph.dot
