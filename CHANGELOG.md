@@ -82,3 +82,9 @@ This log intentionally avoids sensitive information (no secrets, tokens, or pers
 ### Notes
 - Rasa 3.x is not available for Python 3.12+; keep `.venv_chatbot` on Python 3.13 for Gradio/Transformers and use `.venv_rasa` (3.10) for Rasa demos.
 - The Rasa demo includes generated cache/model files locally; they are ignored from version control to keep the repo lean.
+
+## 2025-08-15
+
+### Added
+
+- added ollama to gradio app demo
