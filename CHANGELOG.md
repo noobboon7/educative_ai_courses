@@ -94,3 +94,5 @@ This log intentionally avoids sensitive information (no secrets, tokens, or pers
 ### Changed
 
 - switch project to uv; add pyproject.toml; create local .env (ignored); lock and sync deps with uv
+
+- auto-load .env in Groq_chatbot.py and read GROQ_API_KEY via python-dotenv
