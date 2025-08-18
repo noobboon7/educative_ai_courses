@@ -9,6 +9,11 @@ numpy>=1.26.0
 pydantic>=2.7.0
 python-dotenv>=1.0.1
 requests>=2.32.0
+
+# Chatbot backends
+groq>=0.9.0
+ollama>=0.3.0
+
 # Rasa only supports up to Python <3.12 for the 3.x line. Use env markers to avoid install on 3.12+.
 # Install in a separate Python 3.10 virtualenv for demos (see requirements-rasa.txt).
 rasa>=3.6,<4.0; python_version < "3.12"

@@ -88,3 +88,9 @@ This log intentionally avoids sensitive information (no secrets, tokens, or pers
 ### Added
 
 - added ollama to gradio app demo
+
+## 2025-08-18
+
+### Changed
+
+- switch project to uv; add pyproject.toml; create local .env (ignored); lock and sync deps with uv

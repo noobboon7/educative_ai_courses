@@ -1,0 +1,39 @@
+[project]
+name = "gradio_chatbot"
+version = "0.1.0"
+description = "Gradio chatbot demos with Groq and Ollama backends"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "educative_ai_courses" }]
+
+# Core dependencies (chatbot demos)
+dependencies = [
+  "gradio>=4.44.0",
+  "transformers>=4.42.0",
+  "accelerate>=0.33.0",
+  "torch>=2.3.0",
+  "safetensors>=0.4.3",
+  "numpy>=1.26.0",
+  "pydantic>=2.7.0",
+  "python-dotenv>=1.0.1",
+  "requests>=2.32.0",
+  # Chatbot backends
+  "groq>=0.9.0",
+  "ollama>=0.3.0",
+]
+
+# Optional extras for Rasa demo (requires Python <3.12)
+[project.optional-dependencies]
+rasa = [
+  "rasa>=3.6,<4.0; python_version < \"3.12\"",
+  "rasa-sdk>=3.6,<4.0; python_version < \"3.12\"",
+]
+
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+# Use the existing virtualenv if already activated; otherwise defaults to .venv
+# You can run `uv sync` after activating .venv_chatbot to install here.
+
