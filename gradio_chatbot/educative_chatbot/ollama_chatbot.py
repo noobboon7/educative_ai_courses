@@ -1,25 +1,35 @@
 import gradio as gr
-import ollama
+from groq import Groq
 
 with gr.Blocks() as demo:
-	chat_context = []
+	chat_context = [
+		{
+			"role": "system",
+			"content": 'You are a friendly and helpful educational chatbot named "HTML Guide." Your purpose is to assist users in learning and understanding HyperText Markup Language (HTML). You excel at providing clear explanations, practical examples, and interactive exercises.',
+		}
+	]
 	chatbot = gr.Chatbot(type="messages", height=300)
 	msg = gr.Textbox()
+	client = Groq()
 	
 	def add_message(user_message, chat_history):
 		chat_context.append({"role": "user", "content": user_message})
 		return "", chat_history + [{"role": "user", "content": user_message}]
 
 	def respond(chat_history):
-		stream = ollama.chat(
-			model="qwen2.5:0.5b",
+		completion = client.chat.completions.create(
+			model="llama-3.3-70b-versatile",
 			messages=chat_context,
-			stream=True
+			temperature=1,
+			max_tokens=1024,
+			top_p=1,
+			stream=True,
+			stop=None,
 		)
-		
+  
 		chat_history.append({"role": "assistant", "content": ""})
-		for chunk in stream:
-			chat_history[-1]["content"] += chunk["message"]["content"]
+		for chunk in completion:
+			chat_history[-1]["content"] += chunk.choices[0].delta.content or ""
 			yield chat_history
 		chat_context.append({"role": "assistant", "content": chat_history[-1]["content"]})
 
