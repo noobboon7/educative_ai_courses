@@ -96,3 +96,11 @@ This log intentionally avoids sensitive information (no secrets, tokens, or pers
 - switch project to uv; add pyproject.toml; create local .env (ignored); lock and sync deps with uv
 
 - auto-load .env in Groq_chatbot.py and read GROQ_API_KEY via python-dotenv
+
+## 2025-08-19
+
+### Added
+
+- add speech_to_text_chatbot.py: mic input -> Groq Whisper transcription -> text output
+
+- add gemini_groq_chatbot.py: multimodal (image+text) via Gemini 1.5 Flash; text via Groq Llama; mic transcription via Groq Whisper

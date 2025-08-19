@@ -30,7 +30,19 @@ with gr.Blocks() as demo:
 		}
 	]
 	chatbot = gr.Chatbot(type="messages", height=320)
-	msg = gr.MultimodalTextbox(file_types=['image'], placeholder="Enter message or upload an image...", show_label=False) 
+	with gr.Group():
+		msg = gr.MultimodalTextbox(file_types=['image'], placeholder="Enter message or upload an image...", show_label=False) 
+		audio_input = gr.Audio(sources=["microphone"], type="filepath")
+
+	def process_audio(audio):
+		with open(audio, "rb") as audio_file:
+			transcription = client.audio.transcriptions.create(
+				file=(audio, audio_file.read()),
+				model="whisper-large-v3",
+				language="en",
+				response_format="verbose_json",
+			)
+		return {"text": transcription.text}
 
 	def add_message(user_message, chat_history):
 		file = False
@@ -84,9 +96,15 @@ with gr.Blocks() as demo:
 				chat_history[-1]["content"] += chunk.choices[0].delta.content or ""
 				yield chat_history
 			chat_context.append({"role": "assistant", "content": chat_history[-1]["content"]})
-
+	
 	msg.submit(add_message, [msg, chatbot], [msg, chatbot]).then(
 		respond, chatbot, chatbot).then(
 		lambda: gr.MultimodalTextbox(interactive=True), None, [msg])
+	
+	audio_input.stop_recording(process_audio, audio_input, msg).then(
+		add_message, [msg, chatbot], [msg, chatbot]).then(
+		respond, chatbot, chatbot).then(
+		lambda: gr.MultimodalTextbox(interactive=True), None, [msg]).then(
+		lambda: None, outputs=audio_input)
 
 demo.launch(server_name="0.0.0.0")
