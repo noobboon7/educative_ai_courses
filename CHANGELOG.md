@@ -104,3 +104,11 @@ This log intentionally avoids sensitive information (no secrets, tokens, or pers
 - add speech_to_text_chatbot.py: mic input -> Groq Whisper transcription -> text output
 
 - add gemini_groq_chatbot.py: multimodal (image+text) via Gemini 1.5 Flash; text via Groq Llama; mic transcription via Groq Whisper
+
+## 2025-08-27
+
+### Added
+- gradio_chatbot/educative_chatbot/RAG_LlamaIndex.py: RAG demo for PDF Q&A using LlamaIndex with Groq Llama 3.3 70B and BAAI/bge-small-en-v1.5 embeddings; Gradio UI with file upload and chat.
+
+### Notes
+- Requires GROQ_API_KEY in the environment for Groq LLM access.
